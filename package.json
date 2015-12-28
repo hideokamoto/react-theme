@@ -1,0 +1,16 @@
+{
+  "name": "react-theme",
+  "version": "0.0.1",
+  "description": "WordPress Theme using React and WP REST API",
+  "main": "index.js",
+  "dependencies": {
+    "react": "^0.14.3",
+    "react-dom": "^0.14.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "GPL v3"
+}
