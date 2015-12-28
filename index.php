@@ -6,7 +6,7 @@
 		<?php wp_head();?>
 	</head>
 	<body <?php body_class() ;?> >
-		<div id="content"></div>
+		<div id="content" data-site-url="<?php echo esc_url( home_url() ) ;?>"></div>
 		<?php wp_footer();?>
 	</body>
 </html>
