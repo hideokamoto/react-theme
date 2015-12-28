@@ -1,5 +1,5 @@
 {
-  "name": "react-theme",
+  "name": "oribe",
   "version": "0.0.1",
   "description": "WordPress Theme using React and WP REST API",
   "main": "index.js",
