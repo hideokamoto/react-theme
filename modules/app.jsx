@@ -50,9 +50,9 @@ var CommentForm = React.createClass({
   render: function() {
     return (
       <form className="commentForm" onSubmit={this.handleSubmit}>
-        <input type="text" placeholder="Your name" ref="author_name"/>
-        <input type="text" placeholder="Say something..." ref="content"/>
-		<input type="text" placeholder="postid" name="post" ref="id" />
+        Name:<input type="text" placeholder="Your name" ref="author_name"/><br />
+        Comment<input type="text" placeholder="Say something..." ref="content"/><br />
+		Post ID<input type="text" placeholder="postid" name="post" ref="id" /><br />
         <input type="submit" value="Post" />
       </form>
     );
@@ -76,17 +76,15 @@ var CommentBox = React.createClass({
   handleCommentSubmit: function(comment) {
     var comments = this.state.data;
     var newComments = comments.concat([comment]);
-    this.setState({data: newComments});
     $.ajax({
       url: this.props.url,
       dataType: 'json',
       type: 'POST',
       data: comment,
       success: function(data) {
-        this.setState({data: data});
+        this.loadCommentsFromServer();
       }.bind(this),
       error: function(xhr, status, err) {
-	  	this.setState({data: comments});
         console.error(this.props.url, status, err.toString());
       }.bind(this)
     });
@@ -102,8 +100,8 @@ var CommentBox = React.createClass({
     return (
       <div className="commentBox">
         <h1>Comments</h1>
-        <CommentForm onCommentSubmit={this.handleCommentSubmit} />
         <CommentList data={this.state.data} />
+        <CommentForm onCommentSubmit={this.handleCommentSubmit} />
       </div>
     );
   }
