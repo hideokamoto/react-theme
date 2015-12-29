@@ -4,13 +4,17 @@ var ReactDOM = require('react-dom');
 var Comment = React.createClass({
   render: function() {
     return (
-      <div className="comment">
-        <h2 className="commentAuthor">
-          {this.props.author}
-        </h2>
-        {this.props.children}
-      </div>
-    );
+		<li className="comment list-group-item">
+			<div className="panel-headin">
+				<h3 className="commentAuthor panel-titl">
+					{this.props.author}
+				</h3>
+			</div>
+			<div className="panel-bod">
+				{this.props.children}
+			</div>
+		</li>
+	);
   }
 });
 
@@ -24,9 +28,9 @@ var CommentList = React.createClass({
       );
     });
     return (
-      <div className="commentList">
+      <ul className="commentList list-group">
         {commentNodes}
-      </div>
+      </ul>
     );
   }
 });
@@ -48,7 +52,7 @@ var CommentForm = React.createClass({
   },
   render: function() {
     return (
-      <form className="commentForm" onSubmit={this.handleSubmit}>
+      <form className="commentForm panel-body" onSubmit={this.handleSubmit}>
 		<label htmlFor="comment_author_name">Name</label>
 		<div className="input-group">
 			<input id="comment_author_name" className="form-control" type="text" placeholder="Your name" ref="author_name"/>
@@ -108,9 +112,10 @@ var CommentBox = React.createClass({
   },
   render: function() {
     return (
-      <div className="commentBox">
-        <h1>Comments</h1>
+      <div className="commentBox panel panel-default">
+        <h2 className="panel-heading">Comments</h2>
         <CommentList data={this.state.data} />
+        <h2 className="panel-heading">Post Comments</h2>
         <CommentForm onCommentSubmit={this.handleCommentSubmit} />
       </div>
     );
