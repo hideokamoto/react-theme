@@ -7,7 +7,7 @@ var apiUrl = document.getElementById('content').dataset.siteUrl + '/wp-json/wp/v
 
 // Load components
 var CommentBox = require('../modules/comment.jsx');
-var PostList = require('../modules/post.jsx');
+var Posts = require('../modules/post.jsx');
 
 // Class
 var Article = React.createClass({
@@ -19,7 +19,7 @@ var Article = React.createClass({
 		var commentApiUrl = this.props.apiUrl + 'comments';
 		return (
 			<div className="commentBox panel panel-default">
-				<PostList url={postApiUrl} />
+				<Posts url={postApiUrl} />
 				<CommentBox url={commentApiUrl} pollInterval={60000}/>
 			</div>
 		);
