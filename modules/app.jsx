@@ -41,7 +41,7 @@ var Single = React.createClass({
 		}
 		return (
 			<div className="singleBox panel panel-default">
-				<SingleBox url={postApiUrl} />
+				<SingleBox url={postApiUrl} routeApi={this.props.apiUrl} pageId={this.props.pageId}/>
 			</div>
 		);
 	}
