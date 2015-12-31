@@ -23,6 +23,9 @@ h5.panel-heading {
 	height: auto;
 }
 
+.panel{
+	border-radius: 0;
+}
 
 /**
  * Global Menu
