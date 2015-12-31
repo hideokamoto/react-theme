@@ -6,9 +6,9 @@ var Comment = React.createClass({
 		return (
 			<li className="comment list-group-item">
 				<div className="panel-headin">
-					<h3 className="commentAuthor panel-titl">
+					<h4 className="commentAuthor panel-titl">
 						{this.props.author}
-					</h3>
+					</h4>
 				</div>
 				<div className="panel-bod">
 					{this.props.children}

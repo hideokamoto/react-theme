@@ -26,11 +26,13 @@
 				$page_type = "other";
 			}
 		?>
-		<div id="content" <?php post_class() ;?>
-			data-site-url="<?php echo esc_url( home_url() ) ;?>"
-			data-page-type="<?php echo $page_type ;?>"
-			data-page-id=<?php echo $page_id ;?> ></div>
-		<div id="comment" data-site-url="<?php echo esc_url( home_url() ) ;?>"></div>
+		<div id="container" class="container">
+			<div id="content" <?php post_class() ;?>
+				data-site-url="<?php echo esc_url( home_url() ) ;?>"
+				data-page-type="<?php echo $page_type ;?>"
+				data-page-id=<?php echo $page_id ;?> ></div>
+			<div id="comment" data-site-url="<?php echo esc_url( home_url() ) ;?>"></div>
+		</div>
 		<?php wp_footer();?>
 	</body>
 </html>

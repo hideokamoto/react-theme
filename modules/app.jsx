@@ -16,9 +16,7 @@ var Article = React.createClass({
 	render: function() {
 		var postApiUrl = this.props.apiUrl + 'posts';
 		return (
-			<div className="postBox panel panel-default">
-				<Posts url={postApiUrl} />
-			</div>
+			<Posts url={postApiUrl} />
 		);
 	}
 });
@@ -41,9 +39,7 @@ var Single = React.createClass({
 			postApiUrl += 'posts/' + this.props.pageId;
 		}
 		return (
-			<div className="singleBox panel panel-default">
-				<SingleBox url={postApiUrl} routeApi={this.props.apiUrl} pageId={this.props.pageId}/>
-			</div>
+			<SingleBox url={postApiUrl} routeApi={this.props.apiUrl} pageId={this.props.pageId}/>
 		);
 	}
 });

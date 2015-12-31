@@ -18,7 +18,14 @@ h4.panel-heading,
 h5.panel-heading {
 	margin: 0;
 }
-img {
+* {
 	max-width: 100%;
 	height: auto;
+}
+
+.singleBox .commentBox{
+	border-left: none;
+	border-right: none;
+	border-bottom: none;
+	border-radius: 0;
 }

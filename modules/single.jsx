@@ -59,7 +59,7 @@ var SingleBox = React.createClass({
 			commentHtml = <CommentBox url={commentApi} pollInterval={60000} pageId={this.props.pageId}/>;
 		}
 		return (
-			<div className="panel panel-default">
+			<div className="singleBox panel panel-default">
 				<h2 className="panel-heading">{this.state.data.title.rendered}</h2>
 				{thumbnailHtml}
 				<div dangerouslySetInnerHTML={{__html: this.state.data.content.rendered}} />
