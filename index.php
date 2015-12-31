@@ -22,7 +22,7 @@
 			); ?>
 		</header>
 		<?php
-			$page_id = '';
+			$cat_name = $page_id = '';
 			if ( is_singular() ) {
 				if ( is_single() ) {
 					$page_type = "post";
@@ -32,6 +32,7 @@
 				$page_id = get_the_Id();
 			} elseif ( is_archive() ) {
 				$page_type = "archive";
+				$cat_name = get_the_category()[0]->cat_name;
 			} elseif ( is_home() ) {
 				$page_type = "home";
 			} else {
@@ -43,7 +44,8 @@
 				<div id="content" <?php post_class('col-sm-8') ;?>
 					data-site-url="<?php echo esc_url( home_url() ) ;?>"
 					data-page-type="<?php echo $page_type ;?>"
-					data-page-id=<?php echo $page_id ;?> ></div>
+					data-page-id="<?php echo $page_id ;?>"
+					data-cat-name="<?php echo $cat_name ;?>"></div>
 				<div id="comment" data-site-url="<?php echo esc_url( home_url() ) ;?>" class="col-sm-4"></div>
 			</div>
 		</div>

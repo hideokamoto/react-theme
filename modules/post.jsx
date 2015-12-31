@@ -60,7 +60,7 @@ var PostList = React.createClass({
 var Posts = React.createClass({
 	loadCommentsFromServer: function() {
 		$.ajax({
-			url: this.props.url + '?_embed',
+			url: this.props.url,
 			dataType: 'json',
 			cache: false,
 			success: function(data) {

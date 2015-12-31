@@ -14,9 +14,8 @@ var Posts = require('../modules/post.jsx');
 // Class
 var Article = React.createClass({
 	render: function() {
-		var postApiUrl = this.props.apiUrl + 'posts';
 		return (
-			<Posts url={postApiUrl} />
+			<Posts url={this.props.apiUrl} />
 		);
 	}
 });
@@ -49,6 +48,10 @@ var Single = React.createClass({
 // Render
 var pageType = document.getElementById('content').dataset.pageType;
 if ('home' === pageType || 'archive' === pageType) {
+	apiUrl = apiUrl + 'posts?_embed';
+	if( 'archive' === pageType) {
+		apiUrl = apiUrl + '&filter[category_name]=' + document.getElementById('content').dataset.catName;
+	}
 	ReactDOM.render(
 		<Article apiUrl={apiUrl}/>,
 		document.getElementById('content')

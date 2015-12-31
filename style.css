@@ -42,4 +42,5 @@ h5.panel-heading {
  */
 .categoryList > a {
 	margin-right: 5px;
+	display: inline-block;
 }
