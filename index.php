@@ -6,7 +6,14 @@
 		<?php wp_head();?>
 	</head>
 	<body <?php body_class() ;?> >
-		<div id="content" data-site-url="<?php echo esc_url( home_url() ) ;?>"></div>
+		<header>
+			<h1 class="site-title">
+				<a href="<?php echo esc_url( home_url() ) ;?>">
+					<?php bloginfo( 'name' ); ?>
+				</a>
+			</h1>
+		</header>
+		<div id="content" data-site-url="<?php echo esc_url( home_url() ) ;?>" <?php post_class() ;?>></div>
 		<div id="comment" data-site-url="<?php echo esc_url( home_url() ) ;?>"></div>
 		<?php wp_footer();?>
 	</body>
