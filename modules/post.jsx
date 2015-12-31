@@ -19,7 +19,6 @@ var Post = React.createClass({
 	render: function() {
 		var post_col = "col-xs-12";
 		if ( 0 !== this.props.post.featured_image ) {
-			console.log(this.props.post);
 			var thumbnailHtml = <Thumbnail postData={this.props.post}/>;
 			post_col = "col-xs-8";
 		}

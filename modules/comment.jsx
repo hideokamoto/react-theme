@@ -113,7 +113,7 @@ var CommentBox = React.createClass({
   render: function() {
     return (
       <div className="commentBox panel panel-default">
-        <h2 className="panel-heading">Comments</h2>
+        <h2 className="panel-heading">Recent Comments</h2>
         <CommentList data={this.state.data} />
         <h2 className="panel-heading">Post Comments</h2>
         <CommentForm onCommentSubmit={this.handleCommentSubmit} />

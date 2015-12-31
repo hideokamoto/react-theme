@@ -11,15 +11,21 @@ var Posts = require('../modules/post.jsx');
 
 // Class
 var Article = React.createClass({
-	getInitialState: function() {
-		return {data: []};
-	},
 	render: function() {
 		var postApiUrl = this.props.apiUrl + 'posts';
-		var commentApiUrl = this.props.apiUrl + 'comments';
 		return (
 			<div className="commentBox panel panel-default">
 				<Posts url={postApiUrl} />
+			</div>
+		);
+	}
+});
+
+var Comments = React.createClass({
+	render: function() {
+		var commentApiUrl = this.props.apiUrl + 'comments';
+		return (
+			<div className="commentBox panel panel-default">
 				<CommentBox url={commentApiUrl} pollInterval={60000}/>
 			</div>
 		);
@@ -30,4 +36,9 @@ var Article = React.createClass({
 ReactDOM.render(
 	<Article apiUrl={apiUrl}/>,
 	document.getElementById('content')
+);
+
+ReactDOM.render(
+	<Comments apiUrl={apiUrl}/>,
+	document.getElementById('comment')
 );
