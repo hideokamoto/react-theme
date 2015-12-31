@@ -7,6 +7,7 @@ var apiUrl = document.getElementById('content').dataset.siteUrl + '/wp-json/wp/v
 
 // Load components
 var CommentBox = require('../modules/comment.jsx');
+var AllCommentBox = require('../modules/commentAll.jsx');
 var SingleBox = require('../modules/single.jsx');
 var Posts = require('../modules/post.jsx');
 
@@ -17,6 +18,17 @@ var Article = React.createClass({
 		return (
 			<div className="postBox panel panel-default">
 				<Posts url={postApiUrl} />
+			</div>
+		);
+	}
+});
+
+var Comments = React.createClass({
+	render: function() {
+		var commentApiUrl = this.props.apiUrl + 'comments';
+		return (
+			<div className="commentBox panel panel-default">
+				<AllCommentBox url={commentApiUrl} pollInterval={60000}/>
 			</div>
 		);
 	}
@@ -50,3 +62,8 @@ if ('home' === pageType || 'archive' === pageType) {
 		document.getElementById('content')
 	);
 }
+
+ReactDOM.render(
+	<Comments apiUrl={apiUrl}/>,
+	document.getElementById('comment')
+);
