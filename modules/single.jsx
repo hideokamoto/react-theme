@@ -2,56 +2,8 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 
-var CommentList = require('../modules/commentList.jsx');
+var CommentBox = require('../modules/comment.jsx');
 
-var PostComment = React.createClass({
-	loadCommentsFromServer: function() {
-		$.ajax({
-			url: this.props.commentApi,
-			dataType: 'json',
-			cache: false,
-			success: function(data) {
-				console.log(data);
-				this.setState({data: data});
-			}.bind(this),
-			error: function(xhr, status, err) {
-				console.error(this.props.url, status, err.toString());
-			}.bind(this)
-		});
-	},
-	handleCommentSubmit: function(comment) {
-		var comments = this.state.data;
-		var newComments = comments.concat([comment]);
-		$.ajax({
-			url: this.props.commentApi,
-			dataType: 'json',
-			type: 'POST',
-			data: comment,
-			success: function(data) {
-				this.loadCommentsFromServer();
-			}.bind(this),
-			error: function(xhr, status, err) {
-				console.error(this.props.url, status, err.toString());
-			}.bind(this)
-		});
-	},
-	getInitialState: function() {
-		return {data: []};
-	},
-	componentDidMount: function() {
-		console.log(this.props.commentApi);
-		this.loadCommentsFromServer();
-		//setInterval(this.loadCommentsFromServer, this.props.pollInterval);
-	},
-	render: function() {
-		return (
-			<div className="commentBox panel panel-default">
-				<h2 className="panel-heading">Recent Comments</h2>
-				<CommentList data={this.state.data} />
-			</div>
-		)
-	}
-});
 
 var Thumbnail = React.createClass({
 	getThumbnail: function() {
@@ -104,7 +56,7 @@ var SingleBox = React.createClass({
 		var commentHtml = '';
 		if ( 'closed' !== this.state.data.comment_status ) {
 			var commentApi = this.props.routeApi + 'comments?post=' + this.props.pageId;
-			commentHtml = <PostComment commentApi={commentApi} pollInterval={10000}/>;
+			commentHtml = <CommentBox url={commentApi} pollInterval={60000} pageId={this.props.pageId}/>;
 		}
 		return (
 			<div className="panel panel-default">

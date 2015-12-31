@@ -24,10 +24,7 @@ var CommentForm = React.createClass({
 				<div className="input-group">
 					<input id="comment_author_name" className="form-control" type="text" placeholder="Your name" ref="author_name"/>
 				</div>
-				<label htmlFor="comment_post_id">Post ID</label>
-				<div className="input-group">
-					<input id="comment_post_id" className="form-control" type="text" placeholder="postid" name="post" ref="id" />
-				</div>
+				<input id="comment_post_id" className="form-control" type="hidden" name="post" ref="id" value={this.props.pageId}/>
 				<label htmlFor="comment_content">Comment</label>
 				<div className="input-group">
 					<textarea id="comment_content" className="form-control" type="text" placeholder="Say something..." ref="content"/>
@@ -80,10 +77,10 @@ var CommentBox = React.createClass({
 	render: function() {
 		return (
 			<div className="commentBox panel panel-default">
-				<h2 className="panel-heading">Recent Comments</h2>
+				<h3 className="panel-heading">Recent Comments</h3>
 				<CommentList data={this.state.data} />
-				<h2 className="panel-heading">Post Comments</h2>
-				<CommentForm onCommentSubmit={this.handleCommentSubmit} />
+				<h3 className="panel-heading">Post Comments</h3>
+				<CommentForm onCommentSubmit={this.handleCommentSubmit} pageId={this.props.pageId}/>
 			</div>
 		);
 	}

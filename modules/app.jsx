@@ -22,17 +22,6 @@ var Article = React.createClass({
 	}
 });
 
-var Comments = React.createClass({
-	render: function() {
-		var commentApiUrl = this.props.apiUrl + 'comments';
-		return (
-			<div className="commentBox panel panel-default">
-				<CommentBox url={commentApiUrl} pollInterval={60000}/>
-			</div>
-		);
-	}
-});
-
 var Single = React.createClass({
 	render: function() {
 		var postApiUrl = this.props.apiUrl;
@@ -61,8 +50,3 @@ if ('home' === pageType || 'archive' === pageType) {
 		document.getElementById('content')
 	);
 }
-
-ReactDOM.render(
-	<Comments apiUrl={apiUrl}/>,
-	document.getElementById('comment')
-);
