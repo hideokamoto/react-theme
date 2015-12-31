@@ -11,7 +11,21 @@ Text Domain: oribe
 Tags:
 */
 
-img {
+h1.panel-heading,
+h2.panel-heading,
+h3.panel-heading,
+h4.panel-heading,
+h5.panel-heading {
+	margin: 0;
+}
+* {
 	max-width: 100%;
 	height: auto;
+}
+
+.singleBox .commentBox{
+	border-left: none;
+	border-right: none;
+	border-bottom: none;
+	border-radius: 0;
 }

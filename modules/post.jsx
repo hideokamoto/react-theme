@@ -19,7 +19,6 @@ var Post = React.createClass({
 	render: function() {
 		var post_col = "col-xs-12";
 		if ( 0 !== this.props.post.featured_image ) {
-			console.log(this.props.post);
 			var thumbnailHtml = <Thumbnail postData={this.props.post}/>;
 			post_col = "col-xs-8";
 		}
@@ -29,9 +28,7 @@ var Post = React.createClass({
 					{thumbnailHtml}
 					<div className={post_col}>
 						<div className="panel-headin">
-							<h3 className="commentAuthor panel-titl">
-								{this.props.post.title.rendered}
-							</h3>
+							<h3 className="commentAuthor panel-titl" dangerouslySetInnerHTML={{__html: this.props.post.title.rendered}}/>
 						</div>
 						<div className="panel-bod">
 							{this.props.children}
