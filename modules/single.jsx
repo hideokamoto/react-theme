@@ -4,6 +4,22 @@ var ReactDOM = require('react-dom');
 
 var CommentBox = require('../modules/comment.jsx');
 
+var Category = React.createClass({
+	render: function() {
+		var catNodes = this.props.categoryData.map(function (cat) {
+			return (
+				<a key={cat.id} href={cat.link} className="label label-info">
+					{cat.name}
+				</a>
+			);
+		});
+		return (
+			<div className="categoryList">
+				{catNodes}
+			</div>
+		);
+	}
+});
 
 var Thumbnail = React.createClass({
 	getThumbnail: function() {
@@ -58,10 +74,17 @@ var SingleBox = React.createClass({
 			var commentApi = this.props.routeApi + 'comments?post=' + this.props.pageId;
 			commentHtml = <CommentBox url={commentApi} pollInterval={60000} pageId={this.props.pageId}/>;
 		}
+		var categoryHtml = '';
+		if ( this.state.data['_embedded'] && this.state.data['_embedded']['https://api.w.org/term'] ) {
+			var category = this.state.data['_embedded']['https://api.w.org/term'][0];
+			categoryHtml = <Category categoryData={category}/>
+		}
 		return (
 			<div className="singleBox">
 				{thumbnailHtml}
 				<h2 className="page-header" dangerouslySetInnerHTML={{__html:this.state.data.title.rendered}} />
+				{this.state.data.date}
+				{categoryHtml}
 				<div dangerouslySetInnerHTML={{__html: this.state.data.content.rendered}} />
 				{commentHtml}
 			</div>

@@ -36,3 +36,10 @@ h5.panel-heading {
 #global-menu ul ul{
 	display: none;
 }
+
+/**
+ * Category
+ */
+.categoryList > a {
+	margin-right: 5px;
+}
