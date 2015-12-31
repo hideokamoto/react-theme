@@ -48,12 +48,12 @@ var Single = React.createClass({
 // Render
 var pageType = document.getElementById('content').dataset.pageType;
 if ('home' === pageType || 'archive' === pageType) {
-	apiUrl = apiUrl + 'posts?_embed';
+	var postApiUrl = apiUrl + 'posts?_embed';
 	if( 'archive' === pageType) {
-		apiUrl = apiUrl + '&filter[category_name]=' + document.getElementById('content').dataset.catName;
+		postApiUrl = apiUrl + '&filter[category_name]=' + document.getElementById('content').dataset.catName;
 	}
 	ReactDOM.render(
-		<Article apiUrl={apiUrl}/>,
+		<Article apiUrl={postApiUrl}/>,
 		document.getElementById('content')
 	);
 } else if ( 'post' === pageType  || 'page' === pageType) {
