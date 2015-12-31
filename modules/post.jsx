@@ -10,7 +10,7 @@ var Thumbnail = React.createClass({
 	render: function() {
 		var thumbnail_url = this.getThumbnail();
 		return (
-			<img src={thumbnail_url} className="col-xs-4"/>
+			<img src={thumbnail_url} className="col-xs-4 thumbnail"/>
 		);
 	}
 });

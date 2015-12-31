@@ -13,7 +13,7 @@ var Thumbnail = React.createClass({
 	render: function() {
 		var thumbnail_url = this.getThumbnail();
 		return (
-			<img src={thumbnail_url}/>
+			<img src={thumbnail_url} className="thumbnail"/>
 		);
 	}
 });
@@ -59,9 +59,9 @@ var SingleBox = React.createClass({
 			commentHtml = <CommentBox url={commentApi} pollInterval={60000} pageId={this.props.pageId}/>;
 		}
 		return (
-			<div className="singleBox panel panel-default">
-				<h2 className="panel-heading" dangerouslySetInnerHTML={{__html:this.state.data.title.rendered}} />
+			<div className="singleBox">
 				{thumbnailHtml}
+				<h2 className="page-header" dangerouslySetInnerHTML={{__html:this.state.data.title.rendered}} />
 				<div dangerouslySetInnerHTML={{__html: this.state.data.content.rendered}} />
 				{commentHtml}
 			</div>
