@@ -35,11 +35,13 @@
 			}
 		?>
 		<div id="container" class="container">
-			<div id="content" <?php post_class() ;?>
-				data-site-url="<?php echo esc_url( home_url() ) ;?>"
-				data-page-type="<?php echo $page_type ;?>"
-				data-page-id=<?php echo $page_id ;?> ></div>
-			<div id="comment" data-site-url="<?php echo esc_url( home_url() ) ;?>"></div>
+			<div class="row">
+				<div id="content" <?php post_class('col-sm-8') ;?>
+					data-site-url="<?php echo esc_url( home_url() ) ;?>"
+					data-page-type="<?php echo $page_type ;?>"
+					data-page-id=<?php echo $page_id ;?> ></div>
+				<div id="comment" data-site-url="<?php echo esc_url( home_url() ) ;?>" class="col-sm-4"></div>
+			</div>
 		</div>
 		<?php wp_footer();?>
 	</body>
