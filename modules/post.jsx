@@ -5,12 +5,12 @@ var ReactDOM = require('react-dom');
 var Thumbnail = React.createClass({
 	getThumbnail: function() {
 		var thumbnail = this.props.postData['_embedded']['https://api.w.org/featuredmedia'][0];
-		return "<img src='" + thumbnail.media_details.sizes.thumbnail.source_url + "' />";
+		return thumbnail.media_details.sizes.thumbnail.source_url;
 	},
 	render: function() {
-		var thumbnail_html = this.getThumbnail();
+		var thumbnail_url = this.getThumbnail();
 		return (
-			<div dangerouslySetInnerHTML={{__html: thumbnail_html}} className="col-xs-4"/>
+			<img src={thumbnail_url} className="col-xs-4"/>
 		);
 	}
 });
@@ -19,6 +19,7 @@ var Post = React.createClass({
 	render: function() {
 		var post_col = "col-xs-12";
 		if ( 0 !== this.props.post.featured_image ) {
+			console.log(this.props.post);
 			var thumbnailHtml = <Thumbnail postData={this.props.post}/>;
 			post_col = "col-xs-8";
 		}
