@@ -37,6 +37,8 @@ var Single = React.createClass({
 		var postApiUrl = this.props.apiUrl;
 		if ( 'post' === this.props.pageType ) {
 			postApiUrl += 'posts/' + this.props.pageId;
+		} else if ( 'page' === this.props.pageType ) {
+			postApiUrl += 'pages/' + this.props.pageId;
 		}
 		return (
 			<SingleBox url={postApiUrl} routeApi={this.props.apiUrl} pageId={this.props.pageId}/>
@@ -51,7 +53,7 @@ if ('home' === pageType || 'archive' === pageType) {
 		<Article apiUrl={apiUrl}/>,
 		document.getElementById('content')
 	);
-} else if ( 'post' === pageType ) {
+} else if ( 'post' === pageType  || 'page' === pageType) {
 	var id = document.getElementById('content').dataset.pageId;
 	ReactDOM.render(
 		<Single apiUrl={apiUrl} pageType={pageType} pageId={id} />,

@@ -23,8 +23,12 @@
 		</header>
 		<?php
 			$page_id = '';
-			if ( is_single() ) {
-				$page_type = "post";
+			if ( is_singular() ) {
+				if ( is_single() ) {
+					$page_type = "post";
+				} elseif ( is_page() ) {
+					$page_type = "page";
+				}
 				$page_id = get_the_Id();
 			} elseif ( is_archive() ) {
 				$page_type = "archive";
