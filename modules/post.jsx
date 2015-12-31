@@ -28,9 +28,7 @@ var Post = React.createClass({
 					{thumbnailHtml}
 					<div className={post_col}>
 						<div className="panel-headin">
-							<h3 className="commentAuthor panel-titl">
-								{this.props.post.title.rendered}
-							</h3>
+							<h3 className="commentAuthor panel-titl" dangerouslySetInnerHTML={{__html: this.props.post.title.rendered}}/>
 						</div>
 						<div className="panel-bod">
 							{this.props.children}

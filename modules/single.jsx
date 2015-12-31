@@ -54,13 +54,13 @@ var SingleBox = React.createClass({
 			thumbnailHtml = <Thumbnail postData={this.state.data}/>;
 		}
 		var commentHtml = '';
-		if ( 'closed' !== this.state.data.comment_status ) {
+		if ( 'closed' !== this.state.data.comment_status && this.state.data.comment_status ) {
 			var commentApi = this.props.routeApi + 'comments?post=' + this.props.pageId;
 			commentHtml = <CommentBox url={commentApi} pollInterval={60000} pageId={this.props.pageId}/>;
 		}
 		return (
 			<div className="singleBox panel panel-default">
-				<h2 className="panel-heading">{this.state.data.title.rendered}</h2>
+				<h2 className="panel-heading" dangerouslySetInnerHTML={{__html:this.state.data.title.rendered}} />
 				{thumbnailHtml}
 				<div dangerouslySetInnerHTML={{__html: this.state.data.content.rendered}} />
 				{commentHtml}
