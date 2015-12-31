@@ -29,3 +29,13 @@ h5.panel-heading {
 	border-bottom: none;
 	border-radius: 0;
 }
+
+/**
+ * Global Menu
+ **/
+#global-menu {
+	border-radius: 0;
+}
+#global-menu ul ul{
+	display: none;
+}

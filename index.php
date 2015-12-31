@@ -12,6 +12,14 @@
 					<?php bloginfo( 'name' ); ?>
 				</a>
 			</h1>
+			<?php wp_nav_menu( array(
+				'menu' => 'global_menu',
+				'container' => 'div',
+				'container_class' => 'navbar navbar-inverse',
+				'container_id' => 'global-menu',
+				'menu_class' => 'nav navbar-nav',
+				)
+			); ?>
 		</header>
 		<?php
 			$page_id = '';
